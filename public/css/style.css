@@ -44,12 +44,12 @@ body {
 
 .control.left {
     left: 0;
-    top: 60px;
+    top: 55px;
 }
 
 .control.right {
     right: 0;
-    top: 60px;
+    top: 55px;
 }
 
 hr {
@@ -61,7 +61,7 @@ hr {
 }
 
 label {
-    font-size: 10px;
+    font-size: 12px;
     color: #aaa;
     padding: 12px 4px 0 4px;
 }
@@ -260,4 +260,9 @@ input::-webkit-slider-thumb {
   height: 150px;
   margin-right: 20px;
   float: right;
+}
+.container-qr
+{
+    width: 400px;
+    margin: 0 auto;
 }

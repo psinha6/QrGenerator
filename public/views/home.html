@@ -19,21 +19,47 @@
 	<p> <button ng-click="download()">Download</button> </p>
 </div>
  -->
-
+<div class="container-qr">
  	<div class="form-horizontal">
-		<label class="col-sm-6 control-label text-right">Select Grade </label> <select class="selectpicker" ng-model="className" ng-options="x for x in classNames"></select>
-			<p></p>
-		<label class="col-sm-6 control-label text-right">Enter Subject Name </label> <!-- <input type="text" ng-model="syllabusNo" required> -->
-			<select class="selectpicker" ng-model="syllabusNo" ng-options="x for x in subjects"></select>
-			<p></p>
-		<label class="col-sm-6 control-label text-right">Enter Page No </label> <input type="text" ng-model="pageNo" required>
-		<label class="col-sm-6 control-label text-right">Enter Description </label> <input type="text" ng-model="description" required>
-	</div>
- 	<label class="label label-info control-label">Click on image to download</label>
- 	<p>
-	<p> <button class ="btn-warning btn-lg" ng-click="generateQRCode()">Generate</button> </p>
-	<label class="label label-info control-label" ng-show="isQRGenerated">QR code generated but not saved. Click on 'save' to save the code</label>
-	<p> <button class ="btn-warning btn-lg" ng-click="download()" ng-show="isQRGenerated">Save</button> </p>
-	<p> <button class ="btn-warning btn-lg" ng-click="createNew()">New</button> </p>
 
-	<label class="col-sm-6 label label-danger text-right">{{generalText}}</label>
+	 	<div class="form-group">
+	      <label class="control-label col-sm-4" >Select Grade</label>
+	      <div class="col-sm-8">
+	        <select class="selectpicker form-control" ng-model="className" ng-options="x for x in classNames"></select>
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <label class="control-label col-sm-4" >Enter Subject Name</label>
+	      <div class="col-sm-8">
+	       <select class="selectpicker form-control" ng-model="syllabusNo" ng-options="x for x in subjects"></select>
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <label class="control-label col-sm-4" >Enter Page No</label>
+	      <div class="col-sm-8">
+	       <input  class="form-control" type="text" ng-model="pageNo" required>
+	      </div>
+	    </div>
+
+	    <div class="form-group">
+	      <label class="control-label col-sm-4" >Enter Description</label>
+	      <div class="col-sm-8">
+	        <input class="form-control" type="text" ng-model="description" required>
+	      </div>
+	    </div>
+	    <div class="form-group">
+			<label class="label label-info control-label">Click on image to download</label>
+		</div>
+	    <div class="form-group">
+	      <button class ="btn-warning btn" ng-click="generateQRCode()">Generate</button>
+	      <button class ="btn-warning btn" ng-click="download()" ng-show="isQRGenerated">Save</button>
+		  <button class ="btn-warning btn" ng-click="createNew()">New</button>
+	    </div>
+	    <label class="label label-info control-label" ng-show="isQRGenerated">QR code generated but not saved. Click on 'save' to save the code</label>
+	     
+		 <label class="col-sm-6 label label-danger text-right">{{generalText}}</label>
+	</div>
+ 	
+	</div>
