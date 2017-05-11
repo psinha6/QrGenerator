@@ -8,7 +8,8 @@
     "file-system": "^2.2.2",
     "method-override": "~2.0.2",
     "mongoose": "~3.8.0",
-    "mysql": "^2.5.4"
+    "mysql": "^2.5.4",
+    "uuid": "^3.0.1"
   },
   "scripts": {
     "postinstall": "bower install",

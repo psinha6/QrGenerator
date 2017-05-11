@@ -6,7 +6,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var fs 			   = require('file-system');
 var archiver 	   = require('archiver');
-
+var uuid 		   = require("uuid/v1")
 var mysql          = require('mysql');
 // configuration ===========================================
 	
@@ -181,8 +181,10 @@ app.get('/downloadImages', function(req, resp){
 	    			rows[i].path = "null";
 	    		}
 	    	}
+	    	var downloadName = 'Download' + uuid() + '.zip';
+	    	console.log("Dwl Name:: " + downloadName);
 	    	var archive  	   = archiver('zip');
-	    	var output = fs.createWriteStream(__dirname + '/public/Download.zip');
+	    	var output = fs.createWriteStream(__dirname + '/public/' + downloadName);
 	    	archive.pipe(output);
 	    	for(i=0; i<fileNames.length; i++){
 				var path = __dirname + '/public/img/'+fileNames[i];
@@ -212,7 +214,7 @@ app.get('/downloadImages', function(req, resp){
 			});*/
 			output.on('close', function() {
 				resp.setHeader('Content-Type', 'application/json');
-				resp.send(JSON.stringify({totalBytes: archive.pointer(), name: 'Download.zip'}));
+				resp.send(JSON.stringify({totalBytes: archive.pointer(), name: downloadName}));
 				console.log(archive.pointer() + ' total bytes');
 			});
 			archive.finalize();
