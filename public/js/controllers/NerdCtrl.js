@@ -21,6 +21,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, $ht
     $location.path( 'geeks' );
   }
 	$scope.zipDownload = function(filterData){
+    $scope.filesZipped = "";
     $http({
           method: 'GET',
           url: '/downloadImages',
@@ -28,7 +29,7 @@ angular.module('NerdCtrl', []).controller('NerdController', function($scope, $ht
         }).then(function successCallback(response) {
           console.log("Image saved successfully :: " + JSON.stringify(response));
           $scope.filesZipped = response.data.name;
-          
+
         }, function errorCallback(response) {
           console.log("Error could not save image::" + JSON.stringify(response));
         });
